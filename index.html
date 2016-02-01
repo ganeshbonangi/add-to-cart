@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>POC</title>
+
+    <link href="css/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!--angularjs js -->
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <!-- your app's js -->
+    <script src="js/addToCart.module.js"></script>
+    <script src="js/addToCart.controller.js"></script>
+    <script src="js/addToCart.services.js"></script>
+
+  </head>
+
+  <body  ng-app='cart'>
+
+    <div>
+      <div ng-controller="TodoCart">
+        <div ng-repeat="item in items">
+          <span ng-bind='item.name'></span>
+          <span ng-bind='item.cost'></span>
+          <span class='addToCart' ng-click='addToCart(item)'>+</span>
+        </div>
+        <button id='showCart' ng-click='showCartItems()'>Show Cart</button>
+        <div ng-repeat="carteditem in cartedItems">
+          <span ng-bind='carteditem.name'></span>
+          <input type='number' min="1" ng-change="changeCountOfItems(carteditem, carteditem.count, $index)" ng-model='carteditem.count'/>
+          <span ng-bind='carteditem.cartedItemcost'></span>
+          <span class='removeFromCart' ng-click='removeFromCart(carteditem,$index)'>-</span>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

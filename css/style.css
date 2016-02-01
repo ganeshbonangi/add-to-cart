@@ -1,0 +1,8 @@
+.addToCart{
+  background:green;
+  cursor:pointer;
+}
+.removeFromCart{
+  background:red;
+  cursor:pointer;
+}
